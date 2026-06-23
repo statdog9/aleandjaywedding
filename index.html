@@ -539,7 +539,7 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/img004.jpg">
+  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/img004.jpg">
     <source src="hero.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
@@ -938,7 +938,7 @@
         <button class="pg-arrow pg-next" aria-label="Next">&#8250;</button></div>
       </div>
     </div>
-    <p style="text-align:center;font-style:italic;color:var(--muted);margin-top:1.6rem">Breakfast is included each morning, and a shuttle runs between the Palazzo and Country House on pizza night and the wedding day. Check-in is from 4:00&nbsp;pm on Saturday 8 May, and checkout is 11:30&nbsp;am on Tuesday 11 May. Estate and suite assignments will be shared closer to the date &mdash; and when you RSVP, you can let us know if there are specific people you&rsquo;d like in your suite. If you decide to stay with us, when you&rsquo;re ready you can <a href="#rsvp" class="js-open-pay" style="color:var(--terracotta-dark)">pay for your room</a> in the RSVP section below.</p>
+    <p style="text-align:center;font-style:italic;color:var(--muted);margin-top:1.6rem">Breakfast is included each morning, and a shuttle runs to and from the Palazzo for every event, on all days, for guests staying at both the Country House and the City Apartment. Check-in is from 4:00&nbsp;pm on Saturday 8 May, and checkout is 11:30&nbsp;am on Tuesday 11 May. Estate and suite assignments will be shared closer to the date &mdash; and when you RSVP, you can let us know if there are specific people you&rsquo;d like in your suite. If you decide to stay with us, when you&rsquo;re ready you can <a href="#rsvp" class="js-open-pay" style="color:var(--terracotta-dark)">pay for your room</a> in the RSVP section below.</p>
   </div>
 </section>
 
@@ -950,6 +950,10 @@
     <div class="divider"></div>
 
     <details open>
+      <summary>What&rsquo;s included?</summary>
+      <p>From start to finish, the heart of the celebration is on us &mdash; all of your meals, every event across the weekend, a portion of your accommodation, and shuttle service to and from the Palazzo for everyone staying at the Country House and the City Apartment. And if you&rsquo;d ever like to slip away for a bit &mdash; a wander into town or a drive to the coast &mdash; you&rsquo;re warmly welcome to; those personal outings are simply not covered.</p>
+    </details>
+    <details>
       <summary>What should I wear?</summary>
       <p>The dress code is <em>[formal / cocktail / garden-party &mdash; specify]</em>. The ceremony and dinner are partly outdoors on gravel courtyards and garden lawns, so block heels are your friend. Early-May evenings in Le Marche can be cool &mdash; a light wrap is a good idea.</p>
     </details>
@@ -1149,11 +1153,15 @@
 <script>
 (function(){
   var v=document.querySelector('.hero-video'); if(!v) return;
+  try{ v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); }catch(e){}
   function tryPlay(){ try{ v.muted=true; if(v.paused){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); } }catch(e){} }
   window.__heroPlay=tryPlay;
-  tryPlay();
+  ['loadeddata','canplay','canplaythrough','stalled'].forEach(function(ev){ v.addEventListener(ev,tryPlay); });
+  ['pageshow','load','DOMContentLoaded'].forEach(function(ev){ window.addEventListener(ev,tryPlay); });
   document.addEventListener('visibilitychange',function(){ if(!document.hidden) tryPlay(); });
   ['touchstart','pointerdown','click','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev,tryPlay,{passive:true}); });
+  try{ v.load(); }catch(e){}
+  tryPlay();
 })();
 </script>
 <script>
