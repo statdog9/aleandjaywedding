@@ -143,6 +143,8 @@
   details summary::after{content:'+';color:var(--terracotta);font-size:1.5rem;font-family:'EB Garamond',serif}
   details[open] summary::after{content:'\2013'}
   details p{margin-top:.8rem;color:var(--muted);font-size:1rem}
+  details ul{margin:.8rem 0 0;padding-left:1.15rem;color:var(--muted);font-size:1rem}
+  details li{margin-bottom:.5rem;line-height:1.55}
 
   /* ---------- PHOTOS ---------- */
   .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1rem}
@@ -316,14 +318,22 @@
   .vh-card p{font-size:.92rem;color:var(--muted);margin:0;line-height:1.55}
   @media(max-width:820px){.venue-feature{grid-template-columns:1fr;gap:1.6rem}.vf-photo{min-height:240px}.venue-highlights{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:520px){.venue-highlights{grid-template-columns:1fr}}
-  #gate{position:fixed;inset:0;z-index:3000;background:linear-gradient(rgba(28,24,18,.55),rgba(34,28,18,.66)),url('images/img003.jpg') center/cover;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+  #gate{position:fixed;inset:0;z-index:3000;background:linear-gradient(rgba(28,24,18,.55),rgba(34,28,18,.66)),url('images/img003.jpg') center/cover;display:flex;align-items:center;justify-content:center;padding:1.5rem;min-height:100vh;min-height:100svh;height:100dvh}
   .gate-card{max-width:460px;width:100%;text-align:center}
   .gate-mono{font-family:'Tangerine',cursive;font-weight:700;font-size:clamp(4.8rem,14vw,7rem);line-height:.82;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
   .gate-eyebrow{text-transform:uppercase;letter-spacing:.34em;font-size:.74rem;color:rgba(247,242,233,.92);margin:.6rem 0 1.9rem;text-shadow:0 1px 10px rgba(0,0,0,.4)}
   .gate-msg{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#fff;margin-bottom:1.3rem;text-shadow:0 1px 14px rgba(0,0,0,.45)}
   #gate-form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
-  #gate-input{font-family:'EB Garamond',serif;font-size:1rem;padding:.72rem 1rem;border:1px solid var(--line);border-radius:4px;background:#fff;min-width:210px;text-align:center;color:var(--ink)}
+  #gate-input{font-family:'EB Garamond',serif;font-size:1rem;padding:.72rem 2rem;border:1px solid var(--line);border-radius:4px;background:#fff;min-width:210px;text-align:center;color:var(--ink)}
   #gate-input:focus{outline:none;border-color:var(--terracotta)}
+  .gate-inwrap{position:relative;display:inline-flex;align-items:center}
+  #gate-form .gate-eye{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:none;background:transparent;border:0;outline:none;-webkit-appearance:none;appearance:none;padding:0;margin:0;min-width:0;width:auto;letter-spacing:normal;text-transform:none;cursor:pointer;color:#8c857a;display:flex;align-items:center;line-height:0;box-shadow:none}
+  #gate-form .gate-eye:hover{background:transparent;color:#5f594f}
+  #gate-form .gate-eye:focus,#gate-form .gate-eye:focus-visible{outline:none;box-shadow:none;background:transparent}
+  .gate-eye svg{width:20px;height:20px;display:block;stroke-width:1.5}
+  .gate-eye .eye-off{display:none}
+  .gate-eye.on .eye-open{display:none}
+  .gate-eye.on .eye-off{display:block}
   #gate-form button{background:var(--terracotta);color:#fff;border:none;padding:.72rem 1.7rem;border-radius:4px;text-transform:uppercase;letter-spacing:.2em;font-size:.78rem;cursor:pointer;transition:background .2s}
   #gate-form button:hover{background:var(--terracotta-dark)}
   .gate-error{color:#ffd2bd;font-style:italic;margin-top:1.1rem;min-height:1.2em;text-shadow:0 1px 12px rgba(0,0,0,.6)}
@@ -506,8 +516,12 @@
   .chef-toggle .ch-btn.active{background:var(--terracotta);color:#fff}
   .chef-panel[hidden]{display:none}
 
-  .vf-text .chef-quote{font-style:italic;color:var(--olive-dark);font-size:1.05rem;line-height:1.5;border-left:2px solid var(--gold);border-radius:0;padding-left:1.1rem;margin:2.4rem 0 0}
-  .vf-text .cq-by{display:block;font-style:normal;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--terracotta);margin-top:.5rem}
+  .chef-feature{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"photo text" "photo quote";gap:0 2.8rem;align-items:start}
+  .chef-feature .vf-text{grid-area:text}
+  .chef-feature .vf-photo{grid-area:photo;align-self:stretch;min-height:360px;margin:0}
+  .chef-feature .chef-quote{grid-area:quote;font-style:italic;color:var(--olive-dark);font-size:1.05rem;line-height:1.5;border-left:2px solid var(--gold);border-radius:0;padding-left:1.1rem;margin:1.6rem 0 0}
+  .chef-feature .cq-by{display:block;font-style:normal;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--terracotta);margin-top:.5rem}
+  @media(max-width:820px){.chef-feature{grid-template-columns:1fr;grid-template-areas:"text" "photo" "quote";max-width:760px;gap:0}.chef-feature .vf-photo{min-height:300px;margin:1.6rem 0 0}}
 </style>
 </head>
 <body>
@@ -517,7 +531,10 @@
     <p class="gate-eyebrow">A Wedding in Le Marche</p>
     <p class="gate-msg">Please enter the password to continue</p>
     <form id="gate-form" autocomplete="off">
-      <input id="gate-input" type="password" placeholder="Password" aria-label="Password" autocomplete="off" />
+      <span class="gate-inwrap">
+        <input id="gate-input" type="password" placeholder="Password" aria-label="Password" autocomplete="off" />
+        <button type="button" id="gate-eye" class="gate-eye" aria-label="Show password" aria-pressed="false"><svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 10.6a3 3 0 0 0 4.2 4.2"/><path d="M9.88 5.09A9.8 9.8 0 0 1 12 4.9c6.5 0 10 7.1 10 7.1a18.5 18.5 0 0 1-3.05 4M6.2 6.2A18.4 18.4 0 0 0 2 12s3.5 7.1 10 7.1a9.7 9.7 0 0 0 3.9-.8"/></svg></button>
+      </span>
       <button type="submit">Enter</button>
     </form>
     <p class="gate-error" id="gate-error"></p>
@@ -556,7 +573,7 @@
     <p class="section-eyebrow">Benvenuti</p>
     <h2 class="section-title">We're getting married!</h2>
     <div class="divider"></div>
-    <p class="lead">We can't wait to celebrate with our favorite people in the green heart of Italy. Here you'll find everything you need to join us &mdash; from travel and where to stay, to three unforgettable days at a 500-year-old hilltop estate in Le Marche. Grazie for being part of our story.</p>
+    <p class="lead">We can't wait to celebrate with our favorite people in the green heart of Italy. Here you'll find everything you need to join us &mdash; from travel and where to stay, to three unforgettable nights at a 500-year-old hilltop estate in Le Marche. Grazie for being part of our story.</p>
     <div class="oc-carousel">
       <button class="oc-arrow oc-prev" aria-label="Previous">&#8249;</button>
       <div class="oc-track">
@@ -590,11 +607,12 @@
       <p>We could go on and on about the adventures we&rsquo;ve shared, but as they say, a picture is worth a thousand words. Or in this case, a few pictures that offer a glimpse into our love story so far.</p>
     </div>
     <div class="story-ver" data-ver="jay" hidden>
-      <p><em>[Jay&rsquo;s version &mdash; draft below, edit away!]</em></p>
-      <p>Here&rsquo;s the real story: I saw Ale&rsquo;s profile and knew I couldn&rsquo;t leave it to chance, so I spent my one and only Hinge rose on her. Best swipe of my life.</p>
-      <p>She said yes to a first date &mdash; then somehow kept saying yes: to more dates, to road trips, to letting me drag her up mountains and across deserts. One easy afternoon at the dog beach, I realized there was no one I&rsquo;d rather share a leash &mdash; and a life &mdash; with.</p>
-      <p>Since then we&rsquo;ve eaten our way through Mexico, gotten happily lost in Morocco, chased sunsets in Hawaii, and collected more inside jokes than passport stamps. Asking her to marry me was the easiest &lsquo;rose&rsquo; I&rsquo;ve ever used.</p>
-      <p>Ale tells it more poetically &mdash; but the short version is this: I got unbelievably lucky, and now we get to celebrate it with all of you in Italy.</p>
+      <p>Ale likes to say our story began when I swiped right. The truth is, I saw her profile and immediately knew I needed a miracle to get a match. So I used my one and only Hinge rose and hoped for the best.</p>
+      <p>After a smooth pickup line&hellip; she said yes to a first date. After our first date she realized what a suave, cool, charming, debonair, GQ-level man I am, she was begging for a second date. However she then became convinced I was &ldquo;love bombing&rdquo; her because no one could possibly be that interested so quickly. After a fair amount of reassurance (and maybe a little pleading), she somehow kept saying yes to more dates.</p>
+      <p>Before long, we were regularly spending weekdays with each other, filling our weekends with road trips and adventures. Finally on one amazing day at the dog beach, I realized I had finally found someone worth missing a tennis match for. For anyone who knows me, that&rsquo;s basically a declaration of marriage.</p>
+      <p>Since then, we&rsquo;ve literally gotten lost in the streets of Morocco, eaten our way through Mexico and Spain, chased very early sunrises (I definitely was not tired and never complained once) in Hawaii, and made memories everywhere in between. Every trip has been unforgettable, but my favorite place has always been wherever Ale is.</p>
+      <p>So while Ale tells our story with a little more romance and a lot more elegance, my version is simple: I took a chance on a Hinge rose, got unbelievably lucky, and somehow convinced the most amazing woman I know to marry me.</p>
+      <p>Now we can&rsquo;t wait to celebrate the next chapter of our story with all of you in Italy.</p>
     </div>
     <div class="sg-carousel">
       <button class="sg-arrow sg-prev" aria-label="Previous photos">&#8249;</button>
@@ -685,23 +703,25 @@
       <button class="ch-btn" type="button" data-chef="pizza">Pizzaiolo Francesco</button>
     </div>
     <div class="chef-panel" data-chef="luigi">
-      <div class="venue-feature">
-        <div class="vf-photo" style="background-image:url('images/img035.jpg')"></div>
+      <div class="chef-feature">
         <div class="vf-text">
           <span class="vf-eyebrow">Our chef</span>
           <h3 class="vf-h">Chef Luigi</h3>
-          <p>Guests describe Chef Luigi&rsquo;s cooking as Michelin-star level &mdash; a four-course dinner under the stars built around the season and the region, from his now-legendary duck to a carbonara show-cooked on the vintage Ape.</p><p class="chef-quote">&ldquo;Luigi cooked for us at a truly Michelin-star level &mdash; every course delicious, every guest looked after.&rdquo;<span class="cq-by">Romy &amp; Michael</span></p>
+          <p>Guests describe Chef Luigi&rsquo;s cooking as Michelin-star level &mdash; a four-course dinner under the stars built around the season and the region, from his now-legendary duck to a carbonara show-cooked on the vintage Ape.</p>
         </div>
+        <div class="vf-photo" style="background-image:url('images/img035.jpg')"></div>
+        <p class="chef-quote">&ldquo;Luigi cooked for us at a truly Michelin-star level &mdash; every course delicious, every guest looked after.&rdquo;<span class="cq-by">Romy &amp; Michael</span></p>
       </div>
     </div>
     <div class="chef-panel" data-chef="pizza" hidden>
-      <div class="venue-feature rev">
-        <div class="vf-photo" style="background-image:url('images/img036.jpg')"></div>
+      <div class="chef-feature">
         <div class="vf-text">
           <span class="vf-eyebrow">Pizza night</span>
           <h3 class="vf-h">Francesco, our pizzaiolo</h3>
-          <p>On arrival night, Francesco fires the century-old wood oven for pizzas served buffet-style with caprese and fruit skewers &mdash; followed by an artisan gelato cart. The perfect, relaxed Italian welcome.</p><p class="chef-quote">&ldquo;The pizzas were truly heavenly &mdash; our guests are still talking about them.&rdquo;<span class="cq-by">Thara &amp; David</span></p>
+          <p>On arrival night, Francesco fires the century-old wood oven for pizzas served buffet-style with caprese and fruit skewers &mdash; followed by an artisan gelato cart. The perfect, relaxed Italian welcome.</p>
         </div>
+        <div class="vf-photo" style="background-image:url('images/img036.jpg')"></div>
+        <p class="chef-quote">&ldquo;The pizzas were truly heavenly &mdash; our guests are still talking about them.&rdquo;<span class="cq-by">Thara &amp; David</span></p>
       </div>
     </div>
     <p class="center" style="margin-top:1.4rem"><a class="btn outline" href="https://www.lestonghe.com/en/culinary/" target="_blank" rel="noopener">Explore the cuisine &#8599;</a></p>
@@ -719,7 +739,6 @@
       </div>
       <button class="sg-arrow sg-next" aria-label="Next photos">&#8250;</button>
     </div>
-    <p class="center" style="margin:2.4rem auto 0;max-width:660px;font-style:italic;color:var(--muted)">&ldquo;And then the food&hellip; wow. Every dish was a hit: refined, flavourful, and perfectly presented. This wasn&rsquo;t a feast &mdash; it was culinary delight at the highest level. Thank you, chef!&rdquo; &mdash; Margaux &amp; Tanguy</p>
   </div>
 </section>
 
@@ -866,7 +885,7 @@
     <p class="section-eyebrow">Where to Stay</p>
     <h2 class="section-title">Accommodation</h2>
     <div class="divider"></div>
-    <p class="lead">For our three nights together, the entire estate is ours &mdash; the Palazzo, the Country House and the City Apartment in Fossombrone &mdash; with 30 rooms sleeping up to 60 guests. These are mainly three-bedroom suites, each with personal bathrooms and a shared living space and kitchen. The Country House sits about 500&nbsp;feet from the Palazzo, and the City Apartment, if needed, is a 15-minute drive away. A room for two is <strong>$525 in total for all three nights</strong>, and we&rsquo;d love for everyone to stay on site with us &mdash; though you&rsquo;re of course welcome to find a place nearby if you&rsquo;d prefer.</p>
+    <p class="lead">For our three nights together, the entire estate is ours &mdash; the Palazzo, the Country House and the City Apartment in Fossombrone &mdash; with 30 rooms sleeping up to 60 guests. These are mainly three-bedroom suites, each bedroom with its own bathroom, plus a shared living space and kitchen. The Country House sits about 500&nbsp;feet from the Palazzo, and the City Apartment, if needed, is a 15-minute drive away. A room for two is <strong>$525 in total for all three nights</strong>, and we&rsquo;d love for everyone to stay on site with us &mdash; though you&rsquo;re of course welcome to find a place nearby if you&rsquo;d prefer.</p>
     <div class="prop-tabs-wrap">
       <button class="pt-arrow pt-prev" aria-label="Previous">&#8249;</button>
       <div class="prop-tabs" id="prop-tabs">
@@ -938,7 +957,7 @@
         <button class="pg-arrow pg-next" aria-label="Next">&#8250;</button></div>
       </div>
     </div>
-    <p style="text-align:center;font-style:italic;color:var(--muted);margin-top:1.6rem">Breakfast is included each morning, and a shuttle runs to and from the Palazzo for every event, on all days, for guests staying at both the Country House and the City Apartment. Check-in is from 4:00&nbsp;pm on Saturday 8 May, and checkout is 11:30&nbsp;am on Tuesday 11 May. Estate and suite assignments will be shared closer to the date &mdash; and when you RSVP, you can let us know if there are specific people you&rsquo;d like in your suite. If you decide to stay with us, when you&rsquo;re ready you can <a href="#rsvp" class="js-open-pay" style="color:var(--terracotta-dark)">pay for your room</a> in the RSVP section below.</p>
+    <p style="text-align:center;font-style:italic;color:var(--muted);margin-top:1.6rem">Estate and suite assignments will be shared closer to the date &mdash; and when you RSVP, you can let us know if there are specific people you&rsquo;d like in your suite. If you decide to stay with us, you can <a href="#rsvp" class="js-open-pay" style="color:var(--terracotta-dark)">pay for your room</a> in the RSVP section below.</p>
   </div>
 </section>
 
@@ -954,16 +973,29 @@
       <p>From start to finish, the heart of the celebration is on us &mdash; all of your meals, every event across the weekend, a portion of your accommodation, and shuttle service to and from the Palazzo for everyone staying at the Country House and the City Apartment. And if you&rsquo;d ever like to slip away for a bit &mdash; a wander into town or a drive to the coast &mdash; you&rsquo;re warmly welcome to; those personal outings are simply not covered.</p>
     </details>
     <details>
+      <summary>How is the accommodation set up?</summary>
+      <p>The whole estate is ours &mdash; thirty bedrooms in total, spread across three beautiful places to stay. Most are roomy multi-bedroom suites, each bedroom with its own bathroom, plus a shared living space and kitchen:</p>
+      <ul>
+        <li><strong>The Palazzo</strong> (15th-century, crowning the hilltop) &mdash; seven apartments named for the Renaissance figures of Le Stonghe: two three-bedroom suites, two two-bedroom suites, two one-bedroom suites (including the bridal suite) and a cosy double room &mdash; plus its own pool, courtyards and panoramic terraces.</li>
+        <li><strong>The Country House</strong> (17th-century, about 500&nbsp;feet down the hill) &mdash; four spacious three-bedroom apartments, each sleeping up to six, with original beams and a pool of their own.</li>
+        <li><strong>The City Apartment</strong> (in the heart of Fossombrone, a 15-minute drive) &mdash; one grand five-bedroom apartment sleeping up to ten, for anyone who&rsquo;d like a little more space or a taste of Italian city life.</li>
+      </ul>
+    </details>
+    <details>
+      <summary>When can we check in and out?</summary>
+      <p>Check-in opens at <strong>4:00&nbsp;pm on Saturday 8 May</strong>, and checkout is <strong>11:30&nbsp;am on Tuesday 11 May</strong>. If your travel plans need a little flexibility on either end, just let us know and we&rsquo;ll do our best to help.</p>
+    </details>
+    <details>
       <summary>What should I wear?</summary>
-      <p>The dress code is <em>[formal / cocktail / garden-party &mdash; specify]</em>. The ceremony and dinner are partly outdoors on gravel courtyards and garden lawns, so block heels are your friend. Early-May evenings in Le Marche can be cool &mdash; a light wrap is a good idea.</p>
+      <p>There are a few different moments across the weekend, so here&rsquo;s a rough guide. Our <strong>welcome pizza night</strong> is relaxed &mdash; come comfortable. For the <strong>wedding day</strong>, think garden-formal / cocktail: suits or jackets, and elegant dresses or jumpsuits. Much of the day &mdash; the ceremony in the open barn, aperitivo in the courtyard and dinner under the stars &mdash; takes place outdoors on gravel and garden lawns, so block heels are your friend, and early-May evenings in Le Marche can be cool, so a light wrap or layer is a smart idea. The <strong>day after</strong> is easy and sun-filled: bring swimwear for the pool party and something casual for the farewell BBQ. When in doubt, lean a touch dressier for the wedding day and comfortable for everything else.</p>
     </details>
     <details>
       <summary>Are children welcome?</summary>
-      <p><em>[Let guests know whether the celebration is adults-only or family-friendly, and whether childcare can be arranged.]</em></p>
+      <p>As much as we adore the little ones in our lives, we&rsquo;ve planned this as a grown-ups&rsquo; celebration &mdash; we&rsquo;d love for every guest to be fully present (and on the dance floor) with us. That said, we know every family&rsquo;s situation is different, so if this poses a real difficulty please reach out and we&rsquo;ll do our best to work something out.</p>
     </details>
     <details>
       <summary>Will transportation be provided?</summary>
-      <p>The closest airport is Ancona (~45 min); Bologna (under 2 hrs) has the best international connections. The estate can help arrange airport transfers and a group coach for larger parties. <em>[Confirm which transfers you&rsquo;ll be organizing for guests.]</em> Ample parking is available on site if you&rsquo;re driving.</p>
+      <p>During the celebration, shuttles run to and from the Palazzo for everyone staying at the Country House and the City Apartment, so you&rsquo;re covered for every event. For getting to and from Le Stonghe itself, we&rsquo;d recommend renting a car for the most flexibility. We may also arrange a group shuttle from Bologna to the estate &mdash; if that would be helpful for you, just reach out and let us know. Ample parking is available on site if you&rsquo;re driving.</p>
     </details>
     <details>
       <summary>What if it rains?</summary>
@@ -975,15 +1007,11 @@
     </details>
     <details>
       <summary>Do I need a car?</summary>
-      <p>Not necessarily &mdash; most events take place on the estate. But if you&rsquo;d like to explore Urbino, Fossombrone or the Adriatic coast before or after, a rental car is the easiest way to get around.</p>
-    </details>
-    <details>
-      <summary>Is there a hashtag / how do I share photos?</summary>
-      <p><em>[Add your wedding hashtag and/or a shared photo album link here.]</em></p>
+      <p>Not necessarily &mdash; all of our events take place on the estate, and a shuttle runs to and from the Palazzo for guests staying at the Country House and City Apartment. But if you&rsquo;d like to explore Urbino, Fossombrone or the Adriatic coast before or after, a rental car is the easiest way to get around.</p>
     </details>
     <details>
       <summary>Who can I contact with questions?</summary>
-      <p><em>[Add a contact email or phone &mdash; yours or a designated point person.]</em></p>
+      <p>We&rsquo;re always happy to help &mdash; reach out to us anytime at <a href="mailto:aleandjaywedding@gmail.com">aleandjaywedding@gmail.com</a> and we&rsquo;ll get right back to you.</p>
     </details>
   </div>
 </section>
@@ -995,7 +1023,6 @@
     <h2 class="section-title">Registry</h2>
     <div class="divider"></div>
     <p class="lead">Your being there with us in Italy means the world. For those who have asked, we&rsquo;ve put together a few options below.</p>
-    <div class="placeholder">&#9998; Add registry links (e.g., honeymoon fund, store registries) or your preferred wording.</div>
     <p class="center" style="margin-top:1.5rem">
       <a class="btn outline" href="#" target="_blank" rel="noopener">Registry Link 1</a>
       &nbsp;
@@ -1010,9 +1037,8 @@
     <p class="section-eyebrow">Join Us</p>
     <h2 class="section-title">RSVP</h2>
     <div class="divider"></div>
-    <p>We&rsquo;d be delighted to have you celebrate with us. Kindly respond by <strong>[RSVP deadline]</strong> so we can plan the perfect Le Marche celebration.</p>
-    <div class="placeholder" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff">&#9998; Link this button to your RSVP form (Google Form, The Knot, Zola, etc.) or set it to an email.</div>
-    <p style="margin-top:1.5rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap"><a class="btn" href="mailto:jolenowski@gmail.com?subject=Wedding%20RSVP%20%E2%80%94%20Ale%20%26%20Jay">RSVP Now</a><a class="btn" id="open-pay" href="#" style="background:transparent;border:1px solid rgba(255,255,255,.75);color:#fff">Pay for your room</a></p>
+    <p>We&rsquo;d be delighted to have you celebrate with us. Kindly respond by <strong>1 October 2026</strong> so we can plan the perfect Le Marche celebration.</p>
+    <p style="margin-top:1.5rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap"><a class="btn" href="mailto:aleandjaywedding@gmail.com?subject=Wedding%20RSVP%20%E2%80%94%20Ale%20%26%20Jay">RSVP Now</a><a class="btn" id="open-pay" href="#" style="background:transparent;border:1px solid rgba(255,255,255,.75);color:#fff">Pay for your room</a></p>
   </div>
 </section>
 
@@ -1090,7 +1116,7 @@
     function perView(){var p=pitch();return p?Math.max(1,Math.round(tr.clientWidth/p)):1;}
     function maxLeft(){return Math.max(0,tr.scrollWidth-tr.clientWidth);}
     function animTo(target){tr.style.scrollBehavior='auto';target=Math.max(0,Math.min(maxLeft(),target));var start=tr.scrollLeft,d=target-start;if(Math.abs(d)<1){tr.scrollLeft=target;return;}var t0=0,dur=320;function fr(now){if(!t0)t0=now;var p=Math.min(1,(now-t0)/dur);var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;tr.scrollLeft=start+d*e;if(p<1)requestAnimationFrame(fr);}requestAnimationFrame(fr);}
-    function go(dir){var pt=pitch();if(!pt)return;var per=perView();var idx=Math.round(tr.scrollLeft/pt)+dir;var maxIdx=Math.max(0,n-per);if(idx<0)idx=0;if(idx>maxIdx)idx=maxIdx;animTo(idx*pt);}
+    function go(dir){var pt=pitch();if(!pt)return;var per=perView();var idx=Math.round(tr.scrollLeft/pt)+dir*per;var maxIdx=Math.max(0,n-per);if(idx<0)idx=0;if(idx>maxIdx)idx=maxIdx;animTo(idx*pt);}
     c.querySelector('.sg-next').addEventListener('click',function(){go(1);});
     c.querySelector('.sg-prev').addEventListener('click',function(){go(-1);});
   });
@@ -1207,7 +1233,7 @@
     <p class="pm-text">No need to choose a room &mdash; we&rsquo;ll match everyone into the suites once the guest list is final.</p>
     <div class="pm-notes">
       <p>Because the estate has 30 rooms, most are reserved for <strong>double occupancy</strong>.</p>
-      <p>Travelling solo? Please <a href="mailto:jolenowski@gmail.com?subject=Le%20Stonghe%20%E2%80%94%20Room%20question">reach out to us directly</a> &mdash; there are options to share a room with another guest, rent an additional room in town, or possibly a room at the estate on your own (we&rsquo;ll know once the guest list is final).</p>
+      <p>Travelling solo? Please <a href="mailto:aleandjaywedding@gmail.com?subject=Le%20Stonghe%20%E2%80%94%20Room%20question">reach out to us directly</a> &mdash; there are options to share a room with another guest, rent an additional room in town, or possibly a room at the estate on your own (we&rsquo;ll know once the guest list is final).</p>
     </div>
     <div class="pm-sum"><span>Room for three nights</span><b>$525 <span class="pm-per">/ room</span></b></div>
     <div class="pm-pays">
@@ -1253,7 +1279,7 @@
     function perView(){var p=pitch();return p?Math.max(1,Math.round(tr.clientWidth/p)):1;}
     function maxLeft(){return Math.max(0,tr.scrollWidth-tr.clientWidth);}
     function animTo(target){tr.style.scrollBehavior='auto';target=Math.max(0,Math.min(maxLeft(),target));var start=tr.scrollLeft,d=target-start;if(Math.abs(d)<1){tr.scrollLeft=target;return;}var t0=0,dur=320;function fr(now){if(!t0)t0=now;var p=Math.min(1,(now-t0)/dur);var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;tr.scrollLeft=start+d*e;if(p<1)requestAnimationFrame(fr);}requestAnimationFrame(fr);}
-    function go(dir){var pt=pitch();if(!pt)return;var per=perView();var idx=Math.round(tr.scrollLeft/pt)+dir;var maxIdx=Math.max(0,n-per);if(idx<0)idx=0;if(idx>maxIdx)idx=maxIdx;animTo(idx*pt);}
+    function go(dir){var pt=pitch();if(!pt)return;var per=perView();var idx=Math.round(tr.scrollLeft/pt)+dir*per;var maxIdx=Math.max(0,n-per);if(idx<0)idx=0;if(idx>maxIdx)idx=maxIdx;animTo(idx*pt);}
     function center(){tr.scrollLeft=0;}
     w.querySelector('.pg-next').addEventListener('click',function(){go(1);});
     w.querySelector('.pg-prev').addEventListener('click',function(){go(-1);});
@@ -1405,6 +1431,20 @@
       if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)requestAnimationFrame(upd);});});io.observe(c);}
       requestAnimationFrame(function(){requestAnimationFrame(upd);});
     });
+  });
+})();
+</script>
+<script>
+(function(){
+  var inp=document.getElementById('gate-input'), eye=document.getElementById('gate-eye');
+  if(!inp||!eye) return;
+  eye.addEventListener('click',function(){
+    var show=inp.type==='password';
+    inp.type=show?'text':'password';
+    eye.classList.toggle('on',show);
+    eye.setAttribute('aria-pressed',show?'true':'false');
+    eye.setAttribute('aria-label',show?'Hide password':'Show password');
+    try{inp.focus();}catch(e){}
   });
 })();
 </script>
