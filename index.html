@@ -80,6 +80,8 @@
   .countdown div{min-width:64px}
   .countdown .num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;line-height:1}
   .countdown .lbl{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+  .rsvp .countdown{color:#fff;margin-top:1rem}
+  .rsvp .countdown .lbl{opacity:.8}
 
   /* ---------- SECTIONS ---------- */
   section{padding:5.5rem 1.5rem}
@@ -260,7 +262,9 @@
 .ctext{flex:1 1 auto;padding:1.4rem 1.7rem;display:flex;flex-direction:column;justify-content:flex-start}
 .ctext .t{text-transform:uppercase;letter-spacing:.2em;font-size:.88rem;font-weight:600;color:var(--terracotta);display:inline-block;margin-bottom:.2rem}
 .ctext h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.5rem;line-height:1.15;color:var(--olive-dark);margin:.15rem 0 .45rem}
-.ctext p{font-size:.95rem;line-height:1.5;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ctext p{font-size:.95rem;line-height:1.5;color:var(--muted);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.ctext .attire{margin-top:auto;padding-top:.55rem;font-size:.78rem;color:var(--muted);line-height:1.3}
+.ctext .attire b{color:var(--olive);text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;font-weight:600;font-family:'EB Garamond',serif}
 /* MOBILE: stacked full-width cards (photo top) */
 @media(max-width:760px){
   section{padding:3rem .8rem}
@@ -645,13 +649,13 @@
     <h2 class="section-title venue-name">Le Stonghe</h2>
     <p class="venue-name-sub">Fossombrone &#8226; Le Marche &#8226; Italy</p>
     <div class="divider"></div>
-    <p class="lead">Picture arriving up a cypress-lined drive to a 500-year-old palazzo crowning a hilltop above Fossombrone &mdash; and for three days, the whole estate is ours. Sun-warmed stone courtyards, two swimming pools, olive groves, and panoramic views that stretch all the way to the Adriatic. This is where we&rsquo;ll celebrate, together.</p>
+    <p class="lead">When we started planning, we knew we wanted somewhere everyone could be together &mdash; not just for a few hours, but for a few days. Le Stonghe turned out to be exactly that: a 500-year-old palazzo on a hilltop above Fossombrone, reached by a winding, cypress-lined drive, and for three days the whole estate is ours. There are sun-warmed stone courtyards, two swimming pools, olive groves all around, and views that run all the way to the Adriatic. It&rsquo;s relaxed, beautiful and easy to settle into &mdash; the kind of place where you can slow down and spend real time with everyone, which is exactly what we were hoping for.</p>
     <div class="venue-feature">
       <div class="vf-photo" style="background-image:url('images/img027.jpg')"></div>
       <div class="vf-text">
         <span class="vf-eyebrow">The Setting</span>
         <h3 class="vf-h">Fossombrone, in Italy&rsquo;s best-kept secret</h3>
-        <p>Set on top of a hill in Le Marche &mdash; the region known as &lsquo;Italy&rsquo;s best-kept secret&rsquo; &mdash; the estate looks out over rolling countryside between the Apennines and the Adriatic Sea. The 15th-century palazzo and its 17th-century country house were once summer residences of the Florentine Ridolfi family, lovingly restored into luxurious apartments. Nearby lie the Renaissance city of Urbino (a UNESCO World Heritage Site), the Furlo Gorge and the beaches of the Adriatic coast.</p>
+        <p>We fell for this corner of Le Marche &mdash; a region people call &lsquo;Italy&rsquo;s best-kept secret&rsquo; &mdash; the moment we found it, perched on a hilltop with rolling countryside stretching between the Apennines and the Adriatic. The 15th-century palazzo and its 17th-century country house were once summer homes of the Florentine Ridolfi family, lovingly restored into the suites we&rsquo;ll all share. And if you feel like exploring, the Renaissance city of Urbino, the Furlo Gorge and the Adriatic beaches are all an easy drive away.</p>
       </div>
     </div>
 
@@ -683,9 +687,9 @@
       <button class="sg-arrow sg-next" aria-label="Next photos">&#8250;</button>
     </div>
     <div class="venue-address">
-      <span class="va-label">Find us</span>
+      <span class="va-label">Where you&rsquo;ll find us</span>
       Le Stonghe Estate &#8226; Via Monte Bianco 23, 61034 Fossombrone &#8226; Pesaro e Urbino, Le Marche, Italy
-      <div class="venue-cta" style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap"><a class="btn outline" href="https://www.google.com/maps/search/?api=1&amp;query=Le+Stonghe+Estate+Fossombrone" target="_blank" rel="noopener">Open in Maps</a><a class="btn outline" href="https://www.lestonghe.com/en/" target="_blank" rel="noopener">Visit lestonghe.com &#8599;</a></div>
+      <div class="venue-cta" style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap"><a class="btn outline" href="https://www.google.com/maps/search/?api=1&amp;query=Le+Stonghe+Estate+Fossombrone" target="_blank" rel="noopener">Open in Maps</a></div>
     </div>
     
   </div>
@@ -697,7 +701,7 @@
     <p class="section-eyebrow">Food &amp; Wine</p>
     <h2 class="section-title">Culinary</h2>
     <div class="divider"></div>
-    <p class="lead">At Le Stonghe, food plays a starring role. Here in Le Marche everything revolves around pure flavours and local traditions &mdash; aromatic olive oil, homemade pasta, and wines from the surrounding hills. Across our three days you&rsquo;ll savour the very best of Italian cooking: generous, relaxed, and full of little surprises.</p>
+    <p class="lead">If there&rsquo;s one part of the weekend we can&rsquo;t stop thinking about, it&rsquo;s the food. In Le Marche, everything revolves around pure flavours and local traditions &mdash; aromatic olive oil, homemade pasta, and wines from the surrounding hills &mdash; and we can&rsquo;t wait for you to taste the very best of it across our three days together. Think generous, relaxed Italian meals, a few little surprises, and long, happy hours at the table.</p>
     <div class="chef-toggle">
       <button class="ch-btn active" type="button" data-chef="luigi">Chef Luigi</button>
       <button class="ch-btn" type="button" data-chef="pizza">Pizzaiolo Francesco</button>
@@ -707,7 +711,7 @@
         <div class="vf-text">
           <span class="vf-eyebrow">Our chef</span>
           <h3 class="vf-h">Chef Luigi</h3>
-          <p>Guests describe Chef Luigi&rsquo;s cooking as Michelin-star level &mdash; a four-course dinner under the stars built around the season and the region, from his now-legendary duck to a carbonara show-cooked on the vintage Ape.</p>
+          <p>We&rsquo;ve heard Chef Luigi&rsquo;s cooking described as Michelin-star level, and we can&rsquo;t wait for you to taste it for yourselves. He&rsquo;ll cook a four-course dinner under the stars built around the season and the region &mdash; from his now-legendary duck to a carbonara show-cooked on the vintage Ape.</p>
         </div>
         <div class="vf-photo" style="background-image:url('images/img035.jpg')"></div>
         <p class="chef-quote">&ldquo;Luigi cooked for us at a truly Michelin-star level &mdash; every course delicious, every guest looked after.&rdquo;<span class="cq-by">Romy &amp; Michael</span></p>
@@ -718,13 +722,12 @@
         <div class="vf-text">
           <span class="vf-eyebrow">Pizza night</span>
           <h3 class="vf-h">Francesco, our pizzaiolo</h3>
-          <p>On arrival night, Francesco fires the century-old wood oven for pizzas served buffet-style with caprese and fruit skewers &mdash; followed by an artisan gelato cart. The perfect, relaxed Italian welcome.</p>
+          <p>To kick off the weekend, our pizzaiolo Francesco fires up the century-old wood oven for pizzas served buffet-style with caprese and fruit skewers &mdash; followed by an artisan gelato cart. We couldn&rsquo;t imagine a more relaxed (or delicious) way to welcome you all to Italy.</p>
         </div>
         <div class="vf-photo" style="background-image:url('images/img036.jpg')"></div>
         <p class="chef-quote">&ldquo;The pizzas were truly heavenly &mdash; our guests are still talking about them.&rdquo;<span class="cq-by">Thara &amp; David</span></p>
       </div>
     </div>
-    <p class="center" style="margin-top:1.4rem"><a class="btn outline" href="https://www.lestonghe.com/en/culinary/" target="_blank" rel="noopener">Explore the cuisine &#8599;</a></p>
     <p class="venue-cap">A taste of the table</p>
     <div class="sg-carousel">
       <button class="sg-arrow sg-prev" aria-label="Previous photos">&#8249;</button>
@@ -748,32 +751,32 @@
     <p class="section-eyebrow">The Celebration</p>
     <h2 class="section-title">Schedule of Events</h2>
     <div class="divider"></div>
-    <p class="lead">Three nights, the whole estate to ourselves. Here&rsquo;s how the days unfold &mdash; final timings will be confirmed closer to the date.</p>
+    <p class="lead">Three nights, the whole estate to ourselves &mdash; and every event takes place at the Palazzo. Below is how the days will unfold; final timings will be confirmed closer to the date.</p>
     <div class="sched-acc">
       <div class="day-group open">
         <div class="tl2-day" role="button" tabindex="0" aria-expanded="true"><span class="orn">&#10086;</span><span class="dd">Saturday &#183; 8 May</span><span class="hwrap"><h3>Arrival Day</h3></span><span class="day-caret" aria-hidden="true"></span></div>
         <div class="day-rows"><div class="dr-inner"><div class="tl2">
           <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img034.jpg')"></div><div class="ctext"><span class="t">4:00 pm</span><h4>Check-in</h4><p>Arrive and settle into your suite at the estate &mdash; drop your bags and pour a welcome glass.</p></div></div></div>
-          <div class="tl2-row right"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img043.jpg')"></div><div class="ctext"><span class="t">6:30 pm</span><h4>Pizza Night</h4><p>We&rsquo;re kicking off the weekend with a welcome night &mdash; wood-fired pizzas from the century-old oven, antipasti, and a gelato cart for dessert.</p></div></div></div>
+          <div class="tl2-row right"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img043.jpg')"></div><div class="ctext"><span class="t">6:30 pm</span><h4>Pizza Night</h4><p>We&rsquo;ll kick off the weekend with a welcome night of wood-fired pizzas, antipasti and a gelato cart.</p><span class="attire"><b>Attire</b> &middot; Cocktail chic</span></div></div></div>
         </div><button class="day-collapse" type="button" aria-label="Collapse this day">Collapse <span class="dc-caret" aria-hidden="true"></span></button></div></div>
       </div>
       <div class="day-group">
         <div class="tl2-day" role="button" tabindex="0" aria-expanded="false"><span class="orn">&#10086;</span><span class="dd">Sunday &#183; 9 May</span><span class="hwrap"><h3>The Wedding Day</h3></span><span class="day-caret" aria-hidden="true"></span></div>
         <div class="day-rows"><div class="dr-inner"><div class="tl2">
-          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img044.jpg')"></div><div class="ctext"><span class="t">9:30 am</span><h4>Getting Ready</h4><p>We&rsquo;ll start with a relaxed breakfast, then take our time getting ready in the suites before the ceremony.</p></div></div></div>
+          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img044.jpg')"></div><div class="ctext"><span class="t">9:30 am</span><h4>Breakfast</h4><p>A relaxed breakfast on the estate, then time to yourselves while the bridal party gets ready for the day.</p></div></div></div>
           <div class="tl2-row right"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img045.jpg')"></div><div class="ctext"><span class="t">12:30 pm</span><h4>Lunch</h4><p>Light gourmet sandwiches with fresh juices to keep us all going through the afternoon.</p></div></div></div>
-          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img046.jpg')"></div><div class="ctext"><span class="t">4:00 pm</span><h4>The Ceremony</h4><p>We exchange vows in the open barn, framed by olive trees and the rolling Le Marche hills.</p></div></div></div>
-          <div class="tl2-row right"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img042.jpg')"></div><div class="ctext"><span class="t">5:00 pm</span><h4>Aperitivo</h4><p>Bubbles poured from the vintage Ape, Italian antipasti, and live swing as the courtyard fills.</p></div></div></div>
-          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img037.jpg')"></div><div class="ctext"><span class="t">7:30 pm</span><h4>Dinner Under the Stars</h4><p>A four-course Italian dinner with local Terra Cruda wines, the valley twinkling below.</p></div></div></div>
-          <div class="tl2-row right"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img047.jpg')"></div><div class="ctext"><span class="t">10:00 pm &ndash; 2:00 am</span><h4>The Party</h4><p>Dancing in the courtyard with the DJ and a late-night midnight snack &mdash; on into the warm night.</p></div></div></div>
+          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img046.jpg')"></div><div class="ctext"><span class="t">4:00 pm</span><h4>The Ceremony</h4><p>We&rsquo;ll exchange vows in the open barn, surrounded by olive trees and the Le Marche hills.</p><span class="attire"><b>Attire</b> &middot; Garden formal</span></div></div></div>
+          <div class="tl2-row right"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img042.jpg')"></div><div class="ctext"><span class="t">5:00 pm</span><h4>Aperitivo</h4><p>Drinks from the vintage Ape, Italian antipasti and live music as the courtyard fills up.</p></div></div></div>
+          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img037.jpg')"></div><div class="ctext"><span class="t">7:30 pm</span><h4>Dinner Under the Stars</h4><p>A four-course Italian dinner with local wines and views over the valley below.</p></div></div></div>
+          <div class="tl2-row right"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img047.jpg')"></div><div class="ctext"><span class="t">10:00 pm &ndash; 2:00 am</span><h4>The Party</h4><p>Dancing in the courtyard with the DJ and a late-night snack to keep us going until 2am.</p></div></div></div>
         </div><button class="day-collapse" type="button" aria-label="Collapse this day">Collapse <span class="dc-caret" aria-hidden="true"></span></button></div></div>
       </div>
       <div class="day-group">
         <div class="tl2-day" role="button" tabindex="0" aria-expanded="false"><span class="orn">&#10086;</span><span class="dd">Monday &#183; 10 May</span><span class="hwrap"><h3>The Day After</h3></span><span class="day-caret" aria-hidden="true"></span></div>
         <div class="day-rows"><div class="dr-inner"><div class="tl2">
-          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img030.jpg')"></div><div class="ctext"><span class="t">10:00 am</span><h4>Breakfast</h4><p>A slow, sun-filled start &mdash; breakfast on the estate with the valley spread out below.</p></div></div></div>
-          <div class="tl2-row right"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img028.jpg')"></div><div class="ctext"><span class="t">12:30 pm</span><h4>Lunch &amp; Pool Party</h4><p>Lazy hours by the two pools with lunch served poolside &mdash; the perfect recovery day in the sun.</p></div></div></div>
-          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img048.jpg')"></div><div class="ctext"><span class="t">5:00 pm</span><h4>Farewell BBQ</h4><p>A relaxed live-grill BBQ dinner as the sun sets over Le Marche &mdash; one more evening all together.</p></div></div></div>
+          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img030.jpg')"></div><div class="ctext"><span class="t">10:00 am</span><h4>Breakfast</h4><p>A slow, sunny start with breakfast on the estate and the valley spread out below.</p></div></div></div>
+          <div class="tl2-row right"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img028.jpg')"></div><div class="ctext"><span class="t">12:30 pm</span><h4>Lunch &amp; Pool Party</h4><p>Lazy hours by the two pools with lunch served poolside &mdash; the perfect recovery day in the sun.</p><span class="attire"><b>Attire</b> &middot; Poolside chic</span></div></div></div>
+          <div class="tl2-row left"><div class="ev-card"><div class="cphoto" style="background-image:url('images/img048.jpg')"></div><div class="ctext"><span class="t">5:00 pm</span><h4>Farewell BBQ</h4><p>A relaxed live-grill BBQ dinner as the sun sets over Le Marche &mdash; one more evening all together.</p><span class="attire"><b>Attire</b> &middot; Dressy casual</span></div></div></div>
         </div><button class="day-collapse" type="button" aria-label="Collapse this day">Collapse <span class="dc-caret" aria-hidden="true"></span></button></div></div>
       </div>
       <div class="day-group">
@@ -793,7 +796,7 @@
     <p class="section-eyebrow">Getting Here</p>
     <h2 class="section-title">Travel</h2>
     <div class="divider"></div>
-    <p class="lead">The easiest way to reach us is to fly into <strong>Bologna</strong> (BLQ) and drive from there &mdash; a scenic two-hour trip south into the hills of Le Marche. <strong>Ancona</strong> is the closest airport (~45 min) if you can find a connection, and Rimini, Perugia, Rome and Milan are all options too. Let us know your plans and we&rsquo;ll help coordinate transfers and a spot on a group shuttle.</p>
+    <p class="lead">We can&rsquo;t wait to see you in Italy &mdash; here&rsquo;s a little help getting from the airport to the celebration. We&rsquo;d suggest flying into <strong>Bologna</strong> (BLQ) and driving from there: it&rsquo;s a scenic two-hour trip south into the hills of Le Marche. <strong>Ancona</strong> is the closest airport (~45 min) if you can find a connection, and Rimini, Perugia, Rome and Milan all work too. Whatever you decide, send us your plans and we&rsquo;ll help however we can &mdash; we might also organise a group shuttle from Bologna, so let us know if that would be useful for you.</p>
 
     <div class="mapwrap illustrated">
 <svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of Italy showing the route from Bologna to Le Stonghe in Le Marche" style="font-family:'EB Garamond',serif">
@@ -884,7 +887,9 @@
     <p class="section-eyebrow">Where to Stay</p>
     <h2 class="section-title">Accommodation</h2>
     <div class="divider"></div>
-    <p class="lead">For our three nights together, the entire estate is ours &mdash; <strong>the Palazzo, the Country House and the City Apartment</strong> in Fossombrone &mdash; with 30 rooms sleeping up to 60 guests. These are <strong>mainly three-bedroom suites, each bedroom with its own bathroom</strong>, plus a shared living space and kitchen. Once the guest list is final, we&rsquo;ll pair couples up in a suite alongside their friends or family. The Country House sits about 500&nbsp;feet from the Palazzo, and the City Apartment, if needed, is a 15-minute drive away. A room for two is <strong>$525 in total for all three nights</strong>, and we&rsquo;d love for everyone to stay on site with us &mdash; though you&rsquo;re of course welcome to find a place nearby if you&rsquo;d prefer.</p>
+    <p class="lead">For our three nights together, we&rsquo;ve reserved <strong>the entire Le Stonghe estate exclusively for our wedding weekend</strong> &mdash; the Palazzo, the Country House, and, if needed, the City Apartment in Fossombrone. Together, the estate offers 30 rooms accommodating up to 60 guests.</p>
+    <p class="lead">Most accommodations are <strong>three-bedroom suites, each bedroom with its own bathroom</strong>, plus a shared living space and kitchen. The Country House sits about 500&nbsp;feet from the Palazzo, and the City Apartment, if needed, is a 15-minute drive away.</p>
+    <p class="lead">The cost is <strong>$525 per room for the full three-night stay</strong>, based on two guests per room. We&rsquo;d love for as many guests as possible to stay on-site and enjoy the full wedding weekend together &mdash; though you&rsquo;re of course welcome to arrange your own accommodations nearby if you prefer. Because space is limited, room assignments will be made once our guest list is finalized &mdash; and we&rsquo;ll do our best to place you in a suite with your friends or family.</p>
     <div class="prop-tabs-wrap">
       <button class="pt-arrow pt-prev" aria-label="Previous">&#8249;</button>
       <div class="prop-tabs" id="prop-tabs">
@@ -956,7 +961,7 @@
         <button class="pg-arrow pg-next" aria-label="Next">&#8250;</button></div>
       </div>
     </div>
-    <p style="text-align:center;font-style:italic;color:var(--muted);margin-top:1.6rem">Estate and suite assignments will be shared closer to the date &mdash; and when you RSVP, you can let us know if there are specific people you&rsquo;d like in your suite. If you decide to stay with us, you can <a href="#rsvp" class="js-open-pay" style="color:var(--terracotta-dark)">pay for your room</a> in the RSVP section below.</p>
+    <p style="text-align:center;font-style:italic;color:var(--muted);margin-top:1.6rem">When you RSVP, let us know if there are specific people you&rsquo;d like in your suite. If you decide to stay with us, you can <a href="#rsvp" class="js-open-pay" style="color:var(--terracotta-dark)">pay for your room</a> in the RSVP section below.</p>
   </div>
 </section>
 
@@ -975,7 +980,7 @@
       <summary>How is the accommodation set up?</summary>
       <p>The whole estate is ours &mdash; thirty bedrooms in total, spread across three beautiful places to stay. Most are roomy multi-bedroom suites, each bedroom with its own bathroom, plus a shared living space and kitchen:</p>
       <ul>
-        <li><strong>The Palazzo</strong> (15th-century, crowning the hilltop) &mdash; seven apartments named for the Renaissance figures of Le Stonghe: two three-bedroom suites, two two-bedroom suites, two one-bedroom suites (including the bridal suite) and a cosy double room &mdash; plus its own pool, courtyards and panoramic terraces.</li>
+        <li><strong>The Palazzo</strong> (15th-century, crowning the hilltop) &mdash; seven apartments named for the Renaissance figures of Le Stonghe: 2 three-bedroom suites, 2 two-bedroom suites and 3 one-bedroom suites (including the bridal suite) &mdash; plus its own pool, courtyards and panoramic terraces.</li>
         <li><strong>The Country House</strong> (17th-century, about 500&nbsp;feet down the hill) &mdash; four spacious three-bedroom apartments, each sleeping up to six, with original beams and a pool of their own.</li>
         <li><strong>The City Apartment</strong> (in the heart of Fossombrone, a 15-minute drive) &mdash; one grand five-bedroom apartment sleeping up to ten, for anyone who&rsquo;d like a little more space or a taste of Italian city life.</li>
       </ul>
@@ -986,7 +991,13 @@
     </details>
     <details>
       <summary>What should I wear?</summary>
-      <p>There are a few different moments across the weekend, so here&rsquo;s a rough guide. Our <strong>welcome pizza night</strong> is relaxed &mdash; come comfortable. For the <strong>wedding day</strong>, think garden-formal / cocktail: suits or jackets, and elegant dresses or jumpsuits. Much of the day &mdash; the ceremony in the open barn, aperitivo in the courtyard and dinner under the stars &mdash; takes place outdoors on gravel and garden lawns, so block heels are your friend, and early-May evenings in Le Marche can be cool, so a light wrap or layer is a smart idea. The <strong>day after</strong> is easy and sun-filled: bring swimwear for the pool party and something casual for the farewell BBQ. When in doubt, lean a touch dressier for the wedding day and comfortable for everything else.</p>
+      <p>Each event has its own dress code &mdash; here&rsquo;s what we mean by each:</p>
+      <ul>
+        <li><strong>Cocktail chic</strong> <em>(welcome pizza night)</em> &mdash; polished but fun: a nice dress or jumpsuit, or a smart shirt and trousers. No need for full formalwear.</li>
+        <li><strong>Garden formal</strong> <em>(the wedding day)</em> &mdash; our dressiest moment: suits or jackets, and elegant dresses or jumpsuits. The ceremony, aperitivo and dinner are outdoors on gravel and lawn, so block heels are your friend &mdash; and early-May evenings can be cool, so bring a light wrap or layer.</li>
+        <li><strong>Poolside chic</strong> <em>(day-after lunch &amp; pool party)</em> &mdash; swimwear plus a stylish cover-up, or an easy, relaxed outfit for lounging in the sun.</li>
+        <li><strong>Dressy casual</strong> <em>(farewell BBQ)</em> &mdash; relaxed but put-together: think linen, a sundress, or smart-casual separates. Nothing formal.</li>
+      </ul>
     </details>
     <details>
       <summary>Are children welcome?</summary>
@@ -1021,12 +1032,9 @@
     <p class="section-eyebrow">Your Presence Is the Present</p>
     <h2 class="section-title">Registry</h2>
     <div class="divider"></div>
-    <p class="lead">Your being there with us in Italy means the world. For those who have asked, we&rsquo;ve put together a few options below.</p>
-    <p class="center" style="margin-top:1.5rem">
-      <a class="btn outline" href="#" target="_blank" rel="noopener">Registry Link 1</a>
-      &nbsp;
-      <a class="btn outline" href="#" target="_blank" rel="noopener">Honeymoon Fund</a>
-    </p>
+    <p class="lead">Honestly, having you there to celebrate with us in Italy is the only gift we&rsquo;re after &mdash; we don&rsquo;t have a registry, and we probably won&rsquo;t. But if you&rsquo;re really set on giving something, we have just one request:</p>
+    <p class="center" style="margin-top:1.3rem"><span style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--terracotta-dark)">Go adopt a dog. &#128062;</span></p>
+    <p class="center" style="margin:.5rem auto 0;max-width:560px;font-style:italic;color:var(--muted)">Give a good pup a loving home, send us a photo, and consider us absolutely delighted.</p>
   </div>
 </section>
 
@@ -1036,7 +1044,9 @@
     <p class="section-eyebrow">Join Us</p>
     <h2 class="section-title">RSVP</h2>
     <div class="divider"></div>
-    <p>We&rsquo;d be delighted to have you celebrate with us. Kindly respond by <strong>1 October 2026</strong> so we can plan the perfect Le Marche celebration.</p>
+    <p>We&rsquo;d be delighted to have you celebrate with us. Kindly respond by <strong>October 1, 2026</strong> so we can plan the perfect Le Marche celebration.</p>
+    <p class="cd-cap" style="text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;color:rgba(255,255,255,.8);margin:0 auto .2rem">Time left to RSVP</p>
+    <div class="countdown" id="rsvp-countdown" aria-label="Time remaining to RSVP"></div>
     <p style="margin-top:1.5rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap"><a class="btn" href="mailto:aleandjaywedding@gmail.com?subject=Wedding%20RSVP%20%E2%80%94%20Ale%20%26%20Jay">RSVP Now</a><a class="btn" id="open-pay" href="#" style="background:transparent;border:1px solid rgba(255,255,255,.75);color:#fff">Pay for your room</a></p>
   </div>
 </section>
@@ -1064,6 +1074,19 @@
   }
   function cell(n,l){return '<div><div class="num">'+String(n).padStart(2,'0')+'</div><div class="lbl">'+l+'</div></div>';}
   tick(); setInterval(tick,1000);
+  const rsvpDate = new Date(2026, 9, 1, 23, 59, 59); // 1 Oct 2026
+  const rcd = document.getElementById('rsvp-countdown');
+  function rtick(){
+    if(!rcd) return;
+    const now = new Date();
+    let diff = Math.max(0, rsvpDate - now);
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor(diff%86400000/3600000);
+    const m = Math.floor(diff%3600000/60000);
+    const s = Math.floor(diff%60000/1000);
+    rcd.innerHTML = cell(d,'Days')+cell(h,'Hours')+cell(m,'Minutes')+cell(s,'Seconds');
+  }
+  rtick(); setInterval(rtick,1000);
 </script><script>
 (function(){
   var groups=['.intro-photo img'];
@@ -1234,7 +1257,7 @@
       <p>Because the estate has 30 rooms, most are reserved for <strong>double occupancy</strong>.</p>
       <p>Travelling solo? Please <a href="mailto:aleandjaywedding@gmail.com?subject=Le%20Stonghe%20%E2%80%94%20Room%20question">reach out to us directly</a> &mdash; there are options to share a room with another guest, rent an additional room in town, or possibly a room at the estate on your own (we&rsquo;ll know once the guest list is final).</p>
     </div>
-    <div class="pm-sum"><span>Room for three nights</span><b>$525 <span class="pm-per">/ room</span></b></div>
+    <div class="pm-sum"><span>Room for two for 3 nights</span><b>$525</b></div>
     <div class="pm-pays">
       <a class="pm-pay" href="https://aleaandjay-wedding-accomodations.cheddarup.com" target="_blank" rel="noopener">Pay by card &#8594;</a>
       <p class="pm-fee">A 4.25% card processing fee applies &mdash; Venmo, Zelle &amp; PayPal have none.</p>
