@@ -1029,7 +1029,7 @@
     </details>
     <details>
       <summary>When can we check in and out?</summary>
-      <p>Check-in opens at <strong>4:00&nbsp;pm on Saturday 8 May</strong>, and checkout is <strong>11:30&nbsp;am on Tuesday 11 May</strong>. If your travel plans need a little flexibility on either end, just let us know and we&rsquo;ll do our best to help.</p>
+      <p>Check-in opens at <strong>4:00&nbsp;pm on Saturday 8 May</strong>. On <strong>Tuesday 11 May</strong>, rooms need to be vacated by <strong>10:00&nbsp;am</strong>, but you&rsquo;re welcome to stay and enjoy the estate until <strong>11:30&nbsp;am</strong>. If your travel plans need a little flexibility on either end, just let us know and we&rsquo;ll do our best to help.</p>
     </details>
     <details>
       <summary>What should I wear?</summary>
@@ -1090,7 +1090,7 @@
     <p class="cd-cap" style="text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;color:rgba(255,255,255,.8);margin:0 auto .2rem">Time left to RSVP</p>
     <div class="countdown" id="rsvp-countdown" aria-label="Time remaining to RSVP"></div>
     <p class="center" style="margin-top:2rem"><button type="button" class="btn" id="rsvp-open" style="font-size:.82rem;padding:.85rem 2.8rem">RSVP</button></p>
-    <p class="center" style="margin-top:1rem"><a class="js-open-pay" id="open-pay" href="#" style="color:#fff;border-bottom:1px solid rgba(255,255,255,.55);padding-bottom:1px">Staying with us? Pay for your room &#8594;</a></p>
+    <p class="center" style="margin-top:1rem"><a class="btn js-open-pay" id="open-pay" href="#" style="background:transparent;border:1px solid rgba(255,255,255,.75);color:#fff">Pay for your room</a></p>
   </div>
 </section>
 
@@ -1685,7 +1685,7 @@
   function submit(){
     var sh=gatherShared(), att=0, payload={'_subject':'New RSVP - Ale & Jay'};
     payload['Email']=state.email; payload['Mobile']=state.phone||''; payload['Mailing address']=state.address||'';
-    state.guests.forEach(function(g,i){ if(g.attending==='Yes')att++; payload['Guest '+(i+1)]=g.name+' - '+(g.attending==='Yes'?'Joining':'Not attending')+((g.attending==='Yes'&&g.dietary)?(' (dietary: '+g.dietary+')'):''); });
+    for(var gi=0;gi<2;gi++){ var g=state.guests[gi]; if(g&&g.attending==='Yes')att++; payload['Guest '+(gi+1)+' name']=g?g.name:''; payload['Guest '+(gi+1)+' attending']=g?(g.attending==='Yes'?'Joining':'Not attending'):''; payload['Guest '+(gi+1)+' dietary']=(g&&g.attending==='Yes')?(g.dietary||''):''; }
     payload['Attending count']=String(att);
     if(att>0){ payload['Days']=sh.days; payload['Staying on-site']=sh.stay; payload['Suite with']=sh.suite; payload['Travel']=sh.travel; payload['Song']=sh.song; payload['Notes']=sh.notes; }
     next.disabled=true; next.textContent='Sending…';
