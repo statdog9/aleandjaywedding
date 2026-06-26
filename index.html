@@ -602,9 +602,11 @@
   .rm-hh-card{border:1px solid var(--gold);border-radius:14px;padding:1.05rem 1.1rem 1.1rem;background:linear-gradient(180deg,rgba(247,242,233,.85),rgba(247,242,233,.45));margin-top:.2rem;box-shadow:0 6px 20px rgba(58,51,43,.06)}
   .rm-hh-t{font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;color:var(--terracotta-dark);margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem}
   .rm-hh-t:after{content:'';flex:1;height:1px;background:var(--gold);opacity:.5}
-  .rm-hh-opt{display:flex;align-items:center;gap:.75rem;padding:.7rem .9rem;margin-bottom:.5rem;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s}
-  .rm-hh-opt:hover{border-color:var(--gold)}
-  .rm-hh-opt input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+  .rm-hh-opt{padding:.7rem .9rem;margin-bottom:.5rem;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .15s}
+  .rm-hh-opt.on{border-color:var(--gold)}
+  .rm-hh-head{display:flex;align-items:center;gap:.75rem;cursor:pointer}
+  .rm-hh-opt input[type=checkbox]{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+  .rm-hh-att{margin-top:.7rem;padding:.7rem 0 .1rem calc(23px + .75rem);border-top:1px solid var(--line)}
   .rm-hh-check{flex:0 0 auto;width:23px;height:23px;border:1.5px solid var(--gold);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s}
   .rm-hh-check:after{content:'';width:11px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translateY(-1.5px);opacity:0;transition:opacity .15s}
   .rm-hh-name{font-family:'EB Garamond',serif;font-size:1.08rem;color:var(--ink);line-height:1.2}
@@ -1579,7 +1581,6 @@
       <div class="rm-search"><input type="text" id="rm-namesearch" placeholder="Type your name…" autocomplete="off"><div class="rm-suggest" id="rm-suggest"></div></div>
       <div id="rm-household"></div>
       <p class="rm-notfound">Can&rsquo;t find your name? <a href="mailto:jayalewedding@gmail.com?subject=RSVP%20help%20%E2%80%94%20Ale%20%26%20Jay">Contact us</a>.</p>
-      <div id="rm-attend" style="display:none"><div class="rm-attend-h">Who can make it?</div><div id="rm-people"></div></div>
       <div class="rm-err" id="rm-err0"></div>
     </div>
 
@@ -1649,11 +1650,10 @@
   var opener=document.getElementById('rsvp-open');
   var steps=[].slice.call(modal.querySelectorAll('.rm-step'));
   var nav=document.getElementById('rm-nav'), back=document.getElementById('rm-back'), next=document.getElementById('rm-next'), bar=document.getElementById('rm-bar');
-  var peopleWrap=document.getElementById('rm-people');
   var state={guests:[],email:'',phone:''};
   var curId='party';
   function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c];});}
-  var HOUSEHOLDS=[["Cynthia Verrone", "Al"], ["Matthew Olenowski", "Rona Olenowich"], ["Samantha Brodsky", "Mike Brodsky"], ["Kevin Clancy", "Bryanna Clancy"], ["Tane Martin", "Riley Yahr"], ["James Capurro", "Sammi Groce"], ["Brendan Fallon", "Elizabeth Fallon"], ["Chase Tashjian", "Kaitlin Hutchinson"], ["Mike Iamurri", "Fernando Iamurri"], ["Austin Oriol Farres"], ["Patti Salceda", "Patricia Salceda", "Alberto Salceda"]];
+  var HOUSEHOLDS=[["Cynthia Verrone", "Al Bazaz"], ["Matthew Olenowski", "Rona Olechnowich"], ["Samantha Brodsky", "Mike Brodsky"], ["Kevin Clancy", "Bryanna Clancy"], ["Tañé Martin", "Riley Yahr"], ["James Capurro", "Sammi Groce"], ["Brendan Fallon", "Elizabeth Fallon"], ["Chase Tashjian", "Kaitlin Hutchinson"], ["Mike Iamurri", "Fernando Iamurri"], ["Austin Oriol Farres", "Tyler Lamont"], ["Richard Moulton", "Cevriye Uzer"], ["Ryan Curnal", "Trisha Curnal"], ["Louis Arthur", "Gene Arthur"], ["Gabriela Meilander", "Geff Meilander"], ["Martha Galvan", "Alexander Duran"], ["Emily Onysko", "Derek Onysko"], ["Lorena Estrada", "Christian Wren"], ["Bailey Taunt"], ["Yurybett Silvas"], ["Jennifer Martinez", "Jeremy London"], ["Francisco Salceda", "Beatriz Salceda"], ["Fabiola Salceda", "Martín Núñez"], ["Francisco David Salceda", "Mae"], ["Mariana Salceda"], ["Margarita Ávalos", "Juan Jaime Ávalos", "Erika Ávalos", "Víctor Ávalos"], ["Ma. Dolores Salceda", "Jesús Torres", "Osvaldo Torres", "María de Lourdes Torres", "Alejandra Torres"], ["María Teresa Salceda", "Tio Eduardo Gutiérrez", "Gabryel Gutiérrez", "Eduardo Gutiérrez", "Ángela Burguin"], ["Macario Salceda", "María Ceja", "Erika Yesenia Salceda", "Ernesto Salceda"], ["Tia Guadalupe Salceda", "Tio Raúl Pérez", "Raúl Pérez", "Jorge Pérez", "Rubén Pérez"], ["José Salceda", "Karla Cuevas", "Karla Jeaneth Salceda", "Lizeth Guadalupe Salceda", "Brenda Judith Salceda"], ["Héctor Salceda", "Lidia Maravilla", "Guadalupe Salceda"], ["Beatriz Maciel del Río"], ["Tio Juan Cendejas", "Rosa María Zamora", "Juan Cendejas", "Álvaro Cendejas"], ["J. Jesús Cendejas", "Carmen Gómez", "José De Jesús Cendejas", "Rodrigo Cendejas"], ["Tio David Cendejas", "Carmen Godínez", "Beatriz Cendejas", "David Cendejas"], ["Francisco Gerardo Cendejas", "Irma Zambrano", "Geraldine Cendejas", "Francisco Cendejas"], ["Alejandra Estefania Cendejas", "Humberto Capilla", "José Humberto Capilla", "Luis Fernando Capilla"], ["Tio José Luis Cendejas", "Mariana Soto", "José Luis Cendejas", "Estefania Cendejas", "Elizabeth Cendejas"], ["Norma Isabel Cendejas", "Alberto Cuevas", "Ana Isabel Cuevas", "Alejandro Cuevas"], ["Judith Teresa Cendejas", "José María Campos", "Ana Judith Campos", "Héctor Campos"], ["Patricia de Los Ángeles Hernández", "Ambrocio Hernández", "Alberto Hernández", "Gabriel Hernández", "Patricia Hernández"]];
   var ALL=[]; HOUSEHOLDS.forEach(function(h,hi){ h.forEach(function(nm){ ALL.push({name:nm,hi:hi}); }); });
   var searchInp=document.getElementById('rm-namesearch'), suggest=document.getElementById('rm-suggest'), hhWrap=document.getElementById('rm-household');
   var curHH=-1, chosen=[];
@@ -1675,48 +1675,51 @@
   function selectHousehold(hi,picked){
     curHH=hi; var members=HOUSEHOLDS[hi];
     chosen = members.length<=2 ? members.slice() : [picked];
-    suggest.classList.remove('show'); searchInp.value=''; renderHousehold(); refreshAttend();
+    suggest.classList.remove('show'); searchInp.value=''; renderHousehold();
   }
   function renderHousehold(){
     if(curHH<0){ hhWrap.innerHTML=''; return; }
+    syncGuests();
     var members=HOUSEHOLDS[curHH];
     var html='<div class="rm-hh-card"><div class="rm-hh-t">'+T('Who is responding?')+'</div>';
-    members.forEach(function(nm){ var ck=chosen.indexOf(nm)>-1; html+='<label class="rm-hh-opt'+(ck?' on':'')+'"><input type="checkbox" data-nm="'+esc(nm)+'"'+(ck?' checked':'')+'><span class="rm-hh-check"></span><span class="rm-hh-name">'+esc(nm)+'</span></label>'; });
+    members.forEach(function(nm,mi){
+      var ck=chosen.indexOf(nm)>-1, g=ck?guestFor(nm):null;
+      html+='<div class="rm-hh-opt'+(ck?' on':'')+'">';
+      html+='<label class="rm-hh-head"><input type="checkbox" data-nm="'+esc(nm)+'"'+(ck?' checked':'')+'><span class="rm-hh-check"></span><span class="rm-hh-name">'+esc(nm)+'</span></label>';
+      if(ck){
+        html+='<div class="rm-hh-att">'+
+          '<div class="rf-opts" style="flex-direction:row;gap:1.2rem">'+
+          '<label class="rf-opt"><input type="radio" name="att_'+mi+'" value="Yes"'+(g.attending==='Yes'?' checked':'')+'> '+T('Joining')+'</label>'+
+          '<label class="rf-opt"><input type="radio" name="att_'+mi+'" value="No"'+(g.attending==='No'?' checked':'')+'> '+T('Can\u2019t make it')+'</label></div>'+
+          '<div class="rm-diet rf-field" style="margin-top:.7rem;'+(g.attending==='Yes'?'':'display:none')+'"><label>'+T('Dietary needs / allergies')+'</label><input type="text" class="rm-dietinput" value="'+esc(g.dietary)+'" placeholder="'+T('Optional')+'"></div>'+
+          '</div>';
+      }
+      html+='</div>';
+    });
     if(members.length>2) html+='<div class="rm-hh-hint">'+T('Select up to two.')+'</div>';
     html+='<div class="rm-hh-hint"><a href="#" class="rm-hh-change">'+T('Not you? Search again')+'</a></div></div>';
     hhWrap.innerHTML=html;
-    [].slice.call(hhWrap.querySelectorAll('input[type=checkbox]')).forEach(function(c){
-      c.addEventListener('change',function(){
-        var nm=c.getAttribute('data-nm');
-        if(c.checked){ if(chosen.length>=2){ c.checked=false; return; } if(chosen.indexOf(nm)<0) chosen.push(nm); }
+    [].slice.call(hhWrap.querySelectorAll('.rm-hh-opt')).forEach(function(opt){
+      var cb=opt.querySelector('input[type=checkbox]'), nm=cb.getAttribute('data-nm');
+      cb.addEventListener('change',function(){
+        if(cb.checked){ if(chosen.length>=2){ cb.checked=false; return; } if(chosen.indexOf(nm)<0) chosen.push(nm); }
         else { chosen=chosen.filter(function(x){ return x!==nm; }); }
-        var lbl=c.parentNode; if(lbl) lbl.classList.toggle('on', c.checked); refreshAttend();
+        renderHousehold();
       });
+      var g=guestFor(nm);
+      [].slice.call(opt.querySelectorAll('input[type=radio]')).forEach(function(r){ r.addEventListener('change',function(){ if(g){ g.attending=r.value; var d=opt.querySelector('.rm-diet'); if(d) d.style.display=(r.value==='Yes')?'block':'none'; } }); });
+      var di=opt.querySelector('.rm-dietinput'); if(di&&g) di.addEventListener('input',function(){ g.dietary=di.value; });
     });
-    var chg=hhWrap.querySelector('.rm-hh-change'); if(chg) chg.addEventListener('click',function(e){ e.preventDefault(); curHH=-1; chosen=[]; hhWrap.innerHTML=''; searchInp.value=''; searchInp.focus(); refreshAttend(); });
+    var chg=hhWrap.querySelector('.rm-hh-change'); if(chg) chg.addEventListener('click',function(e){ e.preventDefault(); curHH=-1; chosen=[]; state.guests=[]; hhWrap.innerHTML=''; searchInp.value=''; searchInp.focus(); });
   }
   if(searchInp){ searchInp.addEventListener('input',function(){ renderSuggest(searchInp.value); }); }
   document.addEventListener('click',function(e){ if(searchInp && suggest && !searchInp.parentNode.contains(e.target)) suggest.classList.remove('show'); });
   function collectNames(){ return chosen.slice(0,2); }
-  function buildPeople(){
-    var names=collectNames(), prev={};
-    state.guests.forEach(function(g){prev[g.name]=g;});
-    state.guests=names.map(function(nm){return prev[nm]||{name:nm,attending:'',dietary:''};});
-    peopleWrap.innerHTML='';
-    state.guests.forEach(function(g,idx){
-      var c=document.createElement('div'); c.className='rm-pcard';
-      c.innerHTML='<div class="rm-pname">'+esc(g.name)+'</div>'+
-        '<div class="rf-opts" style="flex-direction:row;gap:1.2rem">'+
-        '<label class="rf-opt"><input type="radio" name="att'+idx+'" value="Yes"'+(g.attending==='Yes'?' checked':'')+'> '+T('Joining')+'</label>'+
-        '<label class="rf-opt"><input type="radio" name="att'+idx+'" value="No"'+(g.attending==='No'?' checked':'')+'> '+T('Can\u2019t make it')+'</label></div>'+
-        '<div class="rm-diet rf-field" style="margin-top:.7rem;'+(g.attending==='Yes'?'':'display:none')+'"><label>'+T('Dietary needs / allergies')+'</label><input type="text" class="rm-dietinput" value="'+esc(g.dietary)+'" placeholder="'+T('Optional')+'"></div>';
-      var diet=c.querySelector('.rm-diet'), dietInput=c.querySelector('.rm-dietinput');
-      [].slice.call(c.querySelectorAll('input[type=radio]')).forEach(function(r){ r.addEventListener('change',function(){ g.attending=r.value; diet.style.display=(r.value==='Yes')?'block':'none'; }); });
-      dietInput.addEventListener('input',function(){ g.dietary=dietInput.value; });
-      peopleWrap.appendChild(c);
-    });
+  function syncGuests(){
+    var prev={}; state.guests.forEach(function(g){prev[g.name]=g;});
+    state.guests=chosen.map(function(nm){return prev[nm]||{name:nm,attending:'',dietary:''};});
   }
-  function refreshAttend(){ var box=document.getElementById('rm-attend'); if(chosen.length){ buildPeople(); if(box) box.style.display='block'; } else { if(peopleWrap) peopleWrap.innerHTML=''; state.guests=[]; if(box) box.style.display='none'; } }
+  function guestFor(nm){ for(var gi=0;gi<state.guests.length;gi++){ if(state.guests[gi].name===nm) return state.guests[gi]; } return null; }
   function anyAttending(){ return state.guests.some(function(g){return g.attending==='Yes';}); }
   function order(){ var o=['party']; if(anyAttending()){o.push('contact');o.push('address');o.push('weekend');o.push('fun');} o.push('review'); return o; }
   function showStep(id){
@@ -1733,7 +1736,7 @@
     if(id==='party'){
       var names=collectNames(), err=document.getElementById('rm-err0');
       if(!names.length){ err.textContent=T('Please find and select your name.'); return false; }
-      if(!state.guests.length) buildPeople();
+      syncGuests();
       if(!state.guests.every(function(g){return g.attending;})){ err.textContent=T('Please let us know if each person can make it.'); return false; }
       err.textContent=''; return true;
     }
@@ -1792,12 +1795,12 @@
     showStep(curId);
   });
   back.addEventListener('click',function(){ var o=order(), i=o.indexOf(curId); curId=o[Math.max(i-1,0)]; showStep(curId); });
-  function openModal(){ modal.hidden=false; document.body.style.overflow='hidden'; curHH=-1; chosen=[]; state.guests=[]; if(hhWrap)hhWrap.innerHTML=''; if(searchInp)searchInp.value=''; if(suggest)suggest.classList.remove('show'); var ab=document.getElementById('rm-attend'); if(ab)ab.style.display='none'; if(peopleWrap)peopleWrap.innerHTML=''; curId='party'; showStep('party'); }
+  function openModal(){ modal.hidden=false; document.body.style.overflow='hidden'; curHH=-1; chosen=[]; state.guests=[]; if(hhWrap)hhWrap.innerHTML=''; if(searchInp)searchInp.value=''; if(suggest)suggest.classList.remove('show'); curId='party'; showStep('party'); }
   function closeModal(){ modal.hidden=true; document.body.style.overflow=''; }
   if(opener) opener.addEventListener('click',function(e){ e.preventDefault(); openModal(); });
   [].slice.call(modal.querySelectorAll('[data-rm-close]')).forEach(function(el){ el.addEventListener('click',closeModal); });
   document.addEventListener('keydown',function(e){ if(!modal.hidden && e.key==='Escape') closeModal(); });
-  window.__rmRefreshLang=function(){ try{ if(curHH>=0) renderHousehold(); if(peopleWrap.children.length) buildPeople(); if(curId==='review') buildReview(); showStep(curId); }catch(e){} };
+  window.__rmRefreshLang=function(){ try{ if(curHH>=0) renderHousehold(); if(curId==='review') buildReview(); showStep(curId); }catch(e){} };
 })();
 </script>
 
