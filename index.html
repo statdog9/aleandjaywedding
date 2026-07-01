@@ -1819,7 +1819,8 @@
     showStep(curId);
   });
   back.addEventListener('click',function(){ var o=order(), i=o.indexOf(curId); curId=o[Math.max(i-1,0)]; showStep(curId); });
-  function openModal(){ modal.hidden=false; document.body.style.overflow='hidden'; curHH=-1; chosen=[]; state.guests=[]; if(hhWrap)hhWrap.innerHTML=''; if(searchInp)searchInp.value=''; if(suggest)suggest.classList.remove('show'); curId='party'; showStep('party'); }
+  function resetForm(){ state={guests:[],email:'',phone:''}; ['rm-email','rm-phone','rm-street','rm-unit','rm-city','rm-statep','rm-zip','rm-country','rm-suite','rm-travel','rm-song','rm-notes'].forEach(function(id){ var e=document.getElementById(id); if(e) e.value=''; }); [].slice.call(document.querySelectorAll('#rm-days input, #rm-stay input')).forEach(function(i){ i.checked=false; }); ['rm-err0','rm-errcontact','rm-erraddr','rm-err4'].forEach(function(id){ var e=document.getElementById(id); if(e) e.textContent=''; }); }
+  function openModal(){ modal.hidden=false; document.body.style.overflow='hidden'; resetForm(); curHH=-1; chosen=[]; if(hhWrap)hhWrap.innerHTML=''; if(searchInp)searchInp.value=''; if(suggest)suggest.classList.remove('show'); curId='party'; showStep('party'); }
   function closeModal(){ modal.hidden=true; document.body.style.overflow=''; }
   if(opener) opener.addEventListener('click',function(e){ e.preventDefault(); openModal(); });
   [].slice.call(modal.querySelectorAll('[data-rm-close]')).forEach(function(el){ el.addEventListener('click',closeModal); });
